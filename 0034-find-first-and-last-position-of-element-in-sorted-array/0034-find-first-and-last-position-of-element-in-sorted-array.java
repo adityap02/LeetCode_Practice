@@ -65,4 +65,44 @@ class Solution {
 
         return pos;
     }
+
+    //Easy Approach - Binary Search + L-R Pointers
+    // class Solution {
+    // public int[] searchRange(int[] nums, int target) {
+    //     if(nums.length==1 && nums[0]==target){
+    //         return new int[] {0,0};
+    //     }
+    //     int pos = binarySearch(nums, target, 0, nums.length-1);
+    //     if(pos==-1){
+    //         return new int[] {-1,-1};
+    //     }else{
+    //         int l =pos,r=pos;
+    //         while(true){
+    //             if(l>=0 && nums[l]==target){
+    //                 l--;
+    //             } else if(r<=nums.length-1 && nums[r]==target){
+    //                 r++;
+    //             }else{
+    //                 break;
+    //             }
+    //         }
+    //         return new int[] {l+1,r-1};
+    //     }
+        
+    // }
+
+
+    //     int binarySearch(int array[], int target, int low, int high) {
+    //     while (low <= high) {
+    //         int mid = low + (high - low) / 2;
+    //         if (target == array[mid])
+    //             return mid;
+    //         if (target < array[mid])
+    //             high = mid - 1;
+    //         else
+    //             low = mid + 1;
+    //     }
+    //     return -1;
+    // }
+
 }
