@@ -19,6 +19,23 @@ class Solution {
             r++;
         }
         return max;
+        //Another Solution
 
+        // if(s.length()==0){
+        //     return 0;
+        // }
+        // int ans = 0;
+        // int l=0,r=0;
+        // Map<Character,Integer> map = new HashMap<>();
+
+        // while(r<s.length()){
+        //     if(map.containsKey(s.charAt(r))){
+        //         l= Math.max(map.get(s.charAt(r)), l);
+        //         // if we dont do Math.max- it will fail at "abba"
+        //     }
+        //     ans = Math.max(ans, r-l+1);
+        //     map.put(s.charAt(r),r+1);
+        //     r++;
+        // }
     }
 }
