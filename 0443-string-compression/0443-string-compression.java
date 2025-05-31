@@ -1,28 +1,26 @@
 class Solution {
     public int compress(char[] chars) {
-        int l = 0;
-        int r=0;
+        if(chars.length==1){
+            return 1;
+        }
+        int ans=0;
+        int l=0,r=0;
 
         while(r<chars.length){
-            char currentChar = chars[r];
             int count =0;
-            while(r<chars.length && chars[r]==currentChar){
+            char prev = chars[r];
+            while(r<chars.length && prev==chars[r]){
                 r++;
                 count++;
-
             }
-            chars[l++] = currentChar;
+            chars[l++] = prev;
             if(count>1){
-                //TODO for loop .. int to strring to char
                 for(char c : String.valueOf(count).toCharArray()){
                     chars[l++] = c;
-                    
                 }
-                //l++;
             }
-            //chars[l+1] = count;
-        }
-        return l;
 
+        }
+return l;
     }
 }
