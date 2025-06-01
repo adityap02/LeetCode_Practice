@@ -1,26 +1,20 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        //two pass (two arrays)
-        // TC & SC Both : O(n)
-
-        int[] one = new int[nums.length + 1];
-        Arrays.fill(one, 1);
-        int[] two = new int[nums.length + 1];
-        Arrays.fill(two, 1);
         int[] ans = new int[nums.length];
-
-        // Fill prefix array
-        for (int i = 1; i < one.length; i++) {
-            one[i] = one[i - 1] * nums[i-1];
+        int[] p1 = new int[nums.length];
+        int[] p2 = new int[nums.length];
+        p1[0]=1;
+        for(int i=0;i<nums.length-1;i++){
+            p1[i+1] = nums[i] * p1[i];
         }
-
-        // Fill Suffix array
-        for (int i = nums.length - 1; i >= 0; i--) {
-            two[i] = two[i + 1] * nums[i];
+        p2[nums.length-1] = 1;
+        for(int i=nums.length-1;i>0;i--){
+            p2[i-1] = nums[i] * p2[i];
         }
-        for (int i = 0; i<ans.length; i++) {
-            ans[i] = two[i + 1] * one[i];
+       for(int i=0;i<nums.length;i++){
+           ans[i] = p1[i] * p2[i];
         }
         return ans;
+        
     }
 }
