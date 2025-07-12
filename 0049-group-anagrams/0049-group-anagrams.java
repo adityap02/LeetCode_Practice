@@ -10,10 +10,7 @@ class Solution {
             st.add(s);
             map.put(temp,st);
         }
-        for(String key : map.keySet()){
-            ans.add(map.get(key));
-        } 
-        return ans;
+        return new ArrayList(map.values());
         // Map<String,List<String>> m = new HashMap<>();
 
         // for(String s : strs){
