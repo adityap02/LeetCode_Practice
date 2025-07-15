@@ -1,32 +1,27 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        StringBuilder sb = new StringBuilder();
-
-        for(char c : s.toCharArray()){
-            if(Character.isLetterOrDigit(c)){
-                sb.append(c);
+        // StringBuilder sb =new StringBuilder();
+        // for(char c : s.toCharArray()){
+        //     if(Character.isLetterOrDigit(c)){
+        //         sb.append(Character.toLowerCase(c));
+        //     }
+        // }
+        // return sb.toString().equals(sb.reverse().toString());
+        int l = 0, r = s.length() - 1;
+        char[] ch = s.toCharArray();
+        while (l <= r) {
+            while (l < r && !Character.isLetterOrDigit(Character.toLowerCase(ch[l]))) {
+                l++;
             }
+            while (l < r && !Character.isLetterOrDigit(Character.toLowerCase(ch[r]))) {
+                r--;
+            }
+            if(Character.toLowerCase(ch[l]) !=Character.toLowerCase(ch[r]) ){
+                return false;
+            }
+            l++;
+            r--;
         }
-        return sb.toString().toLowerCase().equals(sb.reverse().toString().toLowerCase()) ;
+        return true;
     }
 }
-//Two Pointer Approach
-// class Solution {
-//     public boolean isPalindrome(String s) {
-//         for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-//             while (i < j && !Character.isLetterOrDigit(s.charAt(i))) {
-//                 i++;
-//             }
-//             while (i < j && !Character.isLetterOrDigit(s.charAt(j))) {
-//                 j--;
-//             }
-
-//             if (
-//                 Character.toLowerCase(s.charAt(i)) !=
-//                 Character.toLowerCase(s.charAt(j))
-//             ) return false;
-//         }
-
-//         return true;
-//     }
-// }
