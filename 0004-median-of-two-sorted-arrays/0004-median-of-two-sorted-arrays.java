@@ -10,23 +10,26 @@ class Solution {
             pos=len/2;
             odd= false;
         }
-        int n =0,m=0, count=0;
-        int[] temp = new int[(len/2)+1];
-        while(count<temp.length){
+        int n =0,m=0, count=0,x=0, y=0;
+        //int[] temp = new int[(len/2)+1];
+        while(count<((len/2)+1)){
             if(n<nums1.length && m<nums2.length && nums1[n]<nums2[m]){
-                temp[count] = nums1[n];
+                y=x;
+                x= nums1[n];
                 n++;
             }else if(m<nums2.length){
-                temp[count] = nums2[m];
+                y=x;
+                x= nums2[m];
                 m++;
             }else{
-                temp[count] = nums1[n];
+                y=x;
+                x = nums1[n];
                 n++;
             }
             if(count==pos && odd){
-                return (double)temp[pos];
+                return (double)x;
             }else if(count==pos && !odd){
-                return (double)(temp[pos] + temp[pos-1])/2;
+                return (double)(x+y)/2;
             }
              count++;
         }
