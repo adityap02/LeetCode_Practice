@@ -1,8 +1,8 @@
 class Solution {
     public int maxProduct(int[] nums) {
-            // DP
-            //2 values, Negative So Far and Positive So Fat
-            // Keepking Negative so fat because we can anytime get another negative value and multiplying
+            // DP 
+            //2 values, Negative So Far and Positive So Far
+            // Keepking Negative so far because we can anytime get another negative value and multiplying
             //that will make it bigger positive number 
 
         int posMax = nums[0];
@@ -20,5 +20,5 @@ class Solution {
             max = Math.max(posMax,max);
         }
         return max;
-    }
+    }//TC : O(n) , SC O(1)
 }
