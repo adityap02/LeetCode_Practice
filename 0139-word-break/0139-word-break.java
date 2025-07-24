@@ -5,6 +5,7 @@ class Solution {
        return helper(s, wordDict, 0);
    }
    boolean helper(String s, List<String> wordDict, int k) {
+    //K is basically offset
        if (k == s.length())
            return true;
        
