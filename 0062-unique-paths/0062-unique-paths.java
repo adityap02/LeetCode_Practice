@@ -1,5 +1,7 @@
 class Solution {
     public int uniquePaths(int m, int n) {
+        //At each step calulating the number of ways to reach the up box + the left box ( sum of both)
+        //is the number of ways to reach current box
         int[][] dp = new int[m][n];
         // First row and first column can only be reached in one way
         for (int i = 0; i < m; i++)
